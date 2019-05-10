@@ -1,8 +1,8 @@
-from statistics import mean
 from xlsxwriter import Workbook
 import os
 
 def best_fit(x,y):
+	mean = lambda x : sum(x) / len(x)
 	multi = lambda x, y : [x * y for x,y in zip(x,y)]	
 	m = ((mean(x)*mean(y) - mean(multi(x,y))) / ((mean(x)**2) - mean(multi(x,x))))
 	return round(m,3)
